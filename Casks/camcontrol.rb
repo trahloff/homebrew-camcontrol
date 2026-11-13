@@ -7,14 +7,9 @@ cask "camcontrol" do
   desc "Face-priority exposure, white balance and Key Light control for Insta360 Link 2/2C"
   homepage "https://github.com/trahloff/homebrew-camcontrol"
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "CamControl.app"
-
-  # Upgrades quit the running app first; start the new version right away.
-  postflight do
-    system_command "/usr/bin/open", args: ["-a", "#{appdir}/CamControl.app"]
-  end
 
   uninstall quit: "de.rahloff.camcontrol"
 
