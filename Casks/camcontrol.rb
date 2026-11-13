@@ -1,0 +1,25 @@
+cask "camcontrol" do
+  version "0.2.7"
+  sha256 "1b8710b7e86dfd3a7e5ad2a95e26861423fe4261e7654594bca896026cc05b8d"
+
+  url "https://github.com/trahloff/homebrew-camcontrol/releases/download/v#{version}/CamControl-#{version}.dmg"
+  name "CamControl"
+  desc "Face-priority exposure, white balance and Key Light control for Insta360 Link 2/2C"
+  homepage "https://github.com/trahloff/homebrew-camcontrol"
+
+  depends_on macos: ">= :sonoma"
+
+  app "CamControl.app"
+
+  # Upgrades quit the running app first; start the new version right away.
+  postflight do
+    system_command "/usr/bin/open", args: ["-a", "#{appdir}/CamControl.app"]
+  end
+
+  uninstall quit: "de.rahloff.camcontrol"
+
+  zap trash: [
+    "~/Library/Application Support/CamControl",
+    "~/Library/Preferences/de.rahloff.camcontrol.plist",
+  ]
+end
