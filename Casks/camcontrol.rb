@@ -4,7 +4,7 @@ cask "camcontrol" do
 
   url "https://github.com/trahloff/homebrew-camcontrol/releases/download/v#{version}/CamControl-#{version}.dmg"
   name "CamControl"
-  desc "Face-priority exposure, white balance and Key Light control for Insta360 Link 2/2C"
+  desc "Face-priority exposure and Key Light control for Insta360 Link 2/2C"
   homepage "https://github.com/trahloff/homebrew-camcontrol"
 
   depends_on macos: :sonoma
